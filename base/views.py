@@ -17,3 +17,9 @@ def create(request):
         Todo.objects.create(name=name,description=description,status=status)    
     return render(request,'create.html')
 
+
+def edit(request,pk):
+    todo_obj = Todo.objects.get(id=pk)
+    data = {'todo':todo_obj}
+    return render(request,'edit.html',context=data)
+
