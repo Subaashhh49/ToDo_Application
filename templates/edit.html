@@ -21,25 +21,25 @@
                  <label for="description" class="form-label">Description</label>
                  <textarea class="form-control" name="description" id="description">{{todo.description}}</textarea>
           </div>
-          
+
             <div class="mb-3">
                 <label for = "status" class="form-label">Status</label>
                 <select class="form-select" id="status" name="status" aria-label="Default select example">
 
                    {% if todo.status == 'Done' %}
-                       <option value="Done">Done</option>
-                       <option value="Not Done">Not Done</option>
+                        <option value="Done" selected >Done</option>
+                        <option value="Not Done">Not Done</option>
                         <option value="In progress">In Progress</option>
 
                     {% elif todo.status == 'Not done' %}
                        <option value="Done">Done</option>
-                       <option value="Not Done">Not Done</option>
+                       <option value="Not Done" selected>Not Done</option>
                        <option value="In progress">In Progress</option> 
 
                     {% else %}
                        <option value="Done">Done</option>
                        <option value="Not Done">Not Done</option>
-                       <option value="In progress">In Progress</option> 
+                       <option value="In progress" selected>In Progress</option> 
                    {% endif %}
                 </select>
             </div>
