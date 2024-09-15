@@ -23,16 +23,14 @@
             <tbody>
               {% for todo in todos %}
               
-              <tr>
+               <tr>
                 <th scope="row">{{todo.id}}</th>
                 <td>{{todo.name}}</td>
                 <td>{{todo.description}}</td>
                 <td>{{todo.status}}</td>
-                <td><a href="{% url 'edit' pk=todo.id %}"><button type="button" class="btn btn-warning">Edit</button></a><td/>
+                <td><a href="{% url 'edit' pk=todo.id %}"><button type="button" class="btn btn-warning">Edit</button></a> <td/>
               </tr>
-              
-          
-              {%endfor%}
+              {% endfor %}
             </tbody>
           </table>
     </body>
