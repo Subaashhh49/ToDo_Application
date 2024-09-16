@@ -28,9 +28,12 @@
                 <td>{{todo.name}}</td>
                 <td>{{todo.description}}</td>
                 <td>{{todo.status}}</td>
-                <td><a href="{% url 'edit' pk=todo.id %}"><button type="button" class="btn btn-warning">Edit</button></a> <td/>
+                <td><a href="{% url 'edit' pk=todo.id %}"><button type="button" class="btn btn-warning">Edit</button></a> <a href="{% url 'delete' pk=todo.id %}"> <button type="button" class="btn btn-danger">Delete</button></a></td>
+              
               </tr>
+              <td> <a href="{% url 'deleteAll' %}"><button type"button" class="btn btn-danger">Delete All</button></a></td>
               {% endfor %}
+              
             </tbody>
           </table>
     </body>

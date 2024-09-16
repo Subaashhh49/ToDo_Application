@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Todo
 
@@ -21,13 +21,23 @@ def create(request):
 def edit(request,pk):
     todo_obj = Todo.objects.get(id=pk)
     if request.method == 'POST':
-        name =  request.POST.get('name')
-        description =  request.POST.get('description')
-        status =  request.POST.get('status')
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        status = request.POST.get('status')
         todo_obj.name = name
         todo_obj.description = description
         todo_obj.status = status
         todo_obj.save()
-    data = {'todo':todo_obj}
+    data={'todo':todo_obj}
     return render(request,'edit.html',context=data)
-
+ 
+def delete(request,pk):
+    todo_obj = Todo.objects.get(id=pk)
+    todo_obj.delete()
+    return redirect(to='home')
+    
+def deleteAll(request):
+    todo_obj = Todo.objects.all()
+    todo_obj.delete()
+    return redirect(to='home')
+    
