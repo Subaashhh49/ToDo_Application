@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from .models import Todo
 
@@ -33,11 +33,19 @@ def edit(request,pk):
  
 def delete(request,pk):
     todo_obj = Todo.objects.get(id=pk)
-    todo_obj.delete()
-    return redirect(to='home')
+    if request.method == 'POST':
+        todo_obj.delete()
+        return redirect(to='home')
+        
+    return render(request, 'delete.html', {'todo':todo_obj})
     
 def deleteAll(request):
-    todo_obj = Todo.objects.all()
-    todo_obj.delete()
-    return redirect(to='home')
+    if request.method == 'POST':
+        todo_obj = Todo.objects.all()
+        todo_obj.delete()
+        return redirect(to='home')
+
+    return render(request, 'delete_all.html')
+
+
     
