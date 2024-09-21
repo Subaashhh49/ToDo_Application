@@ -1,6 +1,0 @@
-<h2>Are you sure you want to delete all items?</h2>
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit">Confirm Delete All</button>
-    <a href="{% url 'home' %}">Cancel</a>
-</form>
