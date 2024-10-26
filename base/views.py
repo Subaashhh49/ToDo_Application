@@ -29,6 +29,7 @@ def edit(request,pk):
         todo_obj.status = status
         todo_obj.save()
     data={'todo':todo_obj}
+    
     return render(request,'edit.html',context=data)
  
 def delete(request,pk):
