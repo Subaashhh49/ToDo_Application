@@ -15,6 +15,7 @@ def create(request):
         description = request.POST.get('description')
         status = request.POST.get('status')
         Todo.objects.create(name=name,description=description,status=status)    
+
     return render(request,'create.html')
 
 
